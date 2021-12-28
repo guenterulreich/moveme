@@ -46,3 +46,7 @@ asciidoctor {
     inputs.dir snippetsDir
     dependsOn test
 }
+
+springBoot {
+    buildInfo()
+}
