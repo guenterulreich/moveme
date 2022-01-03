@@ -1,4 +1,4 @@
-package fh.burgenland.moveme;
+package fh.burgenland.moveme.it;
 
 import org.junit.platform.suite.api.ConfigurationParameter;
 import org.junit.platform.suite.api.SelectClasspathResource;
@@ -10,7 +10,7 @@ import static io.cucumber.junit.platform.engine.Constants.GLUE_PROPERTY_NAME;
 @SelectClasspathResource("features")
 @ConfigurationParameter(
         key = GLUE_PROPERTY_NAME,
-        value = "fh.burgenland.moveme"
+        value = "fh.burgenland.moveme.it"
 )
 public class CucumberIntegrationTest {
 }

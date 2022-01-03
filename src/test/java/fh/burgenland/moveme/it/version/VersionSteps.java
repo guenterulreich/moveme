@@ -1,5 +1,6 @@
-package fh.burgenland.moveme;
+package fh.burgenland.moveme.it.version;
 
+import fh.burgenland.moveme.it.webresponse.WebResponseContext;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.springframework.beans.factory.annotation.Autowired;

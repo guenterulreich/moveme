@@ -1,4 +1,4 @@
-package fh.burgenland.moveme;
+package fh.burgenland.moveme.it;
 
 import io.cucumber.spring.CucumberContextConfiguration;
 import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWebTestClient;
