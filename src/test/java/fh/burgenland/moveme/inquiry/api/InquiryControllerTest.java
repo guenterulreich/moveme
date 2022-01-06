@@ -13,6 +13,8 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
+import static fh.burgenland.moveme.data.InquiryContactAnswerTestData.getAnswerForAlexiPaoli;
+import static fh.burgenland.moveme.data.InquiryForLocalMoveTestData.getInquiryForAlexiPaoli;
 import static org.mockito.Mockito.times;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -29,12 +31,8 @@ public class InquiryControllerTest {
 
     @Test
     public void should_return_http_201_for_successfully_creation_of_inquiry_for_local_move() throws Exception {
-        var inquiry = InquiryForLocalMove.builder()
-                .inquiryContact(InquiryContact.builder().name("Alexi Paoli").telephoneNumber("4369999999").build())
-                .fromInquiryLocation(InquiryLocation.builder().street("Winarskystr. 14/20/1").zip("1200").city("Wien").build())
-                .toInquiryLocation(InquiryLocation.builder().street("Innstraße 7/1").zip("1201").city("Wien").build())
-                .build();
-        var successAnswer = InquiryContactAnswer.builder().referenceNumber("dkdkdkd").answerHour(24).build();
+        var inquiry = getInquiryForAlexiPaoli();
+        var successAnswer = getAnswerForAlexiPaoli();
         var domainResult = DomainResult.<InquiryContactAnswer>builder().success(successAnswer).build();
 
         Mockito.when(service.inquiry(inquiry)).thenReturn(domainResult);
