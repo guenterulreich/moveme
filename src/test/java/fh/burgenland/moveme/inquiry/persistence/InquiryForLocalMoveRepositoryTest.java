@@ -1,14 +1,13 @@
-package fh.burgenland.moveme.inquiry.persistance;
+package fh.burgenland.moveme.inquiry.persistence;
 
 import fh.burgenland.moveme.inquiry.domain.InquiryForLocalMoveDomain;
-import fh.burgenland.moveme.inquiry.persistence.InquiryForLocalMoveRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.data.jdbc.DataJdbcTest;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@DataJdbcTest
+@DataJpaTest
 public class InquiryForLocalMoveRepositoryTest {
 
     @Autowired

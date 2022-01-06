@@ -9,6 +9,8 @@ import io.cucumber.java.en.When;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
+import java.util.Locale;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class InquirySteps {
@@ -53,7 +55,8 @@ public class InquirySteps {
 
     @When("she gets a reference number back")
     public void sheGetsAReferenceNumberBack() {
-        assertThat(this.inquiryContext.inquiryContactAnswer.getReferenceNumber()).isEqualTo("IFLM_" + this.inquiryContext.contactInformation + "WIEN");
+        assertThat(this.inquiryContext.inquiryContactAnswer.getReferenceNumber())
+                .isEqualTo("IFLM_" + this.inquiryContext.client.getName().toUpperCase(Locale.ROOT).replace(" ", "_") + "_WIEN");
     }
 
     @When("the information she will get contacted within the next {int} hours")

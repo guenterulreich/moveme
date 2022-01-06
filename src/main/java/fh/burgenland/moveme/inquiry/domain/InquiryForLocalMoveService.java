@@ -19,7 +19,18 @@ public class InquiryForLocalMoveService {
 
     public DomainResult<InquiryContactAnswer> inquiry(InquiryForLocalMove inquiry) {
         this.repository.save(toDomain(inquiry));
-        return DomainResult.<InquiryContactAnswer>builder().success(InquiryContactAnswer.builder().referenceNumber("dddd").answerHour(24).build()).build();
+        return DomainResult
+                .<InquiryContactAnswer>builder()
+                .success(createInquiryContactAnswer(inquiry))
+                .build();
+    }
+
+    private InquiryContactAnswer createInquiryContactAnswer(InquiryForLocalMove inquiry) {
+        return InquiryContactAnswer.builder().referenceNumber(createReferenceNumber(inquiry)).answerHour(24).build();
+    }
+
+    private String createReferenceNumber(InquiryForLocalMove inquiry) {
+        return ReferenceNumber.localReferenceNumberOf(inquiry.getInquiryContact().getName(), inquiry.getFromInquiryLocation().getCity()).getValue();
     }
 
     private InquiryForLocalMoveDomain toDomain(InquiryForLocalMove inquiry) {
