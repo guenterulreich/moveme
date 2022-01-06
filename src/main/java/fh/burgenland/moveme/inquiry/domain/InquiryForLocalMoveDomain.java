@@ -1,11 +1,18 @@
 package fh.burgenland.moveme.inquiry.domain;
 
-import lombok.Builder;
-import lombok.Value;
+import lombok.Data;
+import org.hibernate.annotations.GenericGenerator;
 
-@Value
-@Builder
+import javax.persistence.*;
+
+@Data
+@Entity
+@Table(name = "INQUIRY_FOR_LOCAL_MOVE")
 public class InquiryForLocalMoveDomain {
+    @Id
+    @GeneratedValue(generator = "uuid2")
+    @GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
+    String id;
     String name;
     String telephoneNumber;
     String toStreet;
@@ -13,4 +20,7 @@ public class InquiryForLocalMoveDomain {
     String fromStreet;
     String fromZip;
     String city;
+
+    public InquiryForLocalMoveDomain() {
+    }
 }

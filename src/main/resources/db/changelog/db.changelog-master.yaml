@@ -2,3 +2,5 @@ databaseChangeLog:
   - preConditions:
       - runningAs:
           username: SA
+  - includeAll:
+      path: db/changelog/changeset

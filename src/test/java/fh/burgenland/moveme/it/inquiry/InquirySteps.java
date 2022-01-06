@@ -53,7 +53,7 @@ public class InquirySteps {
 
     @When("she gets a reference number back")
     public void sheGetsAReferenceNumberBack() {
-        assertThat(this.inquiryContext.inquiryContactAnswer.getReferenceNumber()).isNotEmpty();
+        assertThat(this.inquiryContext.inquiryContactAnswer.getReferenceNumber()).isEqualTo("IFLM_" + this.inquiryContext.contactInformation + "WIEN");
     }
 
     @When("the information she will get contacted within the next {int} hours")

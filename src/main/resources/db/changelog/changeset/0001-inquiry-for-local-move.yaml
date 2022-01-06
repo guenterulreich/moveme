@@ -1,0 +1,49 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-document-table
+      author: Hans Sowa
+      changes:
+        - createTable:
+            tableName: INQUIRY_FOR_LOCAL_MOVE
+            columns:
+              - column:
+                  name: id
+                  type: varchar(255)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: telephone_number
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: to_street
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: to_zip
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: from_street
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: from_zip
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: city
+                  type: varchar(255)
+                  constraints:
+                    nullable: false

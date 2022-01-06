@@ -3,6 +3,7 @@ package fh.burgenland.moveme.inquiry.domain;
 import fh.burgenland.moveme.infrastructure.domain.DomainResult;
 import fh.burgenland.moveme.inquiry.api.InquiryContactAnswer;
 import fh.burgenland.moveme.inquiry.api.InquiryForLocalMove;
+import fh.burgenland.moveme.inquiry.persistence.InquiryForLocalMoveRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -22,15 +23,14 @@ public class InquiryForLocalMoveService {
     }
 
     private InquiryForLocalMoveDomain toDomain(InquiryForLocalMove inquiry) {
-        return InquiryForLocalMoveDomain
-                .builder()
-                .name(inquiry.getInquiryContact().getName())
-                .telephoneNumber(inquiry.getInquiryContact().getTelephoneNumber())
-                .toStreet(inquiry.getToInquiryLocation().getStreet())
-                .toZip(inquiry.getToInquiryLocation().getZip())
-                .fromStreet(inquiry.getFromInquiryLocation().getStreet())
-                .fromZip(inquiry.getFromInquiryLocation().getZip())
-                .city(inquiry.getFromInquiryLocation().getCity())
-                .build();
+        var domain = new InquiryForLocalMoveDomain();
+        domain.setName(inquiry.getInquiryContact().getName());
+        domain.setTelephoneNumber(inquiry.getInquiryContact().getTelephoneNumber());
+        domain.setToStreet(inquiry.getToInquiryLocation().getStreet());
+        domain.setToZip(inquiry.getToInquiryLocation().getZip());
+        domain.setFromStreet(inquiry.getFromInquiryLocation().getStreet());
+        domain.setFromZip(inquiry.getFromInquiryLocation().getZip());
+        domain.setCity(inquiry.getFromInquiryLocation().getCity());
+        return domain;
     }
 }
