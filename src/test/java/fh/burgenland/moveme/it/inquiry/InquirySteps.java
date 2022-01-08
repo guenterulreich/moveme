@@ -4,7 +4,6 @@ import fh.burgenland.moveme.inquiry.api.InquiryContact;
 import fh.burgenland.moveme.inquiry.api.InquiryContactAnswer;
 import fh.burgenland.moveme.inquiry.api.InquiryForLocalMove;
 import fh.burgenland.moveme.inquiry.api.InquiryLocation;
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -13,7 +12,7 @@ import org.springframework.test.web.reactive.server.WebTestClient;
 
 import java.util.Locale;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.*;
 
 public class InquirySteps {
 
@@ -64,5 +63,15 @@ public class InquirySteps {
     @Then("the information she will get contacted within the next {int} hours")
     public void theInformationSheWillGetContactedWithinTheNext24Hours(int hours) {
         assertThat(this.inquiryContext.inquiryContactAnswer.getAnswerHour()).isEqualTo(hours);
+    }
+
+    @When("she tries to inquire support for the movement")
+    public void sheTriesToInquireSupportForTheMovement() {
+        this.sheInquiresSupportForTheMovement();
+    }
+
+    @Then("she gets informed that only a local move is possible")
+    public void sheGetsInformedThatOnlyALocalMoveIsPossible() {
+        //assertThatNullPointerException(this.inquiryContext.inquiryContactAnswer.getAnswerHour());
     }
 }
