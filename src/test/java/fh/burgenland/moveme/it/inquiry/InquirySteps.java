@@ -4,7 +4,9 @@ import fh.burgenland.moveme.inquiry.api.InquiryContact;
 import fh.burgenland.moveme.inquiry.api.InquiryContactAnswer;
 import fh.burgenland.moveme.inquiry.api.InquiryForLocalMove;
 import fh.burgenland.moveme.inquiry.api.InquiryLocation;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.web.reactive.server.WebTestClient;
@@ -53,13 +55,13 @@ public class InquirySteps {
                 .blockFirst();
     }
 
-    @When("she gets a reference number back")
+    @Then("she gets a reference number back")
     public void sheGetsAReferenceNumberBack() {
         assertThat(this.inquiryContext.inquiryContactAnswer.getReferenceNumber())
                 .isEqualTo("IFLM_" + this.inquiryContext.client.getName().toUpperCase(Locale.ROOT).replace(" ", "_") + "_WIEN");
     }
 
-    @When("the information she will get contacted within the next {int} hours")
+    @Then("the information she will get contacted within the next {int} hours")
     public void theInformationSheWillGetContactedWithinTheNext24Hours(int hours) {
         assertThat(this.inquiryContext.inquiryContactAnswer.getAnswerHour()).isEqualTo(hours);
     }

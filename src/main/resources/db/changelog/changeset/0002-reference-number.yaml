@@ -1,0 +1,13 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-document-table
+      author: Hans Sowa
+      changes:
+        - addColumn:
+            tableName: INQUIRY_FOR_LOCAL_MOVE
+            columns:
+              - column:
+                  name: reference_number
+                  type: varchar(255)
+                  constraints:
+                    nullable: false

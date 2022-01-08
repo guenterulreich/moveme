@@ -30,7 +30,8 @@ public class InquiryForLocalMoveService {
     }
 
     private String createReferenceNumber(InquiryForLocalMove inquiry) {
-        return ReferenceNumber.localReferenceNumberOf(inquiry.getInquiryContact().getName(), inquiry.getFromInquiryLocation().getCity()).getValue();
+        var reference = ReferenceNumber.localReferenceNumberOf(inquiry.getInquiryContact().getName(), inquiry.getFromInquiryLocation().getCity()).getValue();
+        return reference;
     }
 
     private InquiryForLocalMoveDomain toDomain(InquiryForLocalMove inquiry) {
@@ -42,6 +43,7 @@ public class InquiryForLocalMoveService {
         domain.setFromStreet(inquiry.getFromInquiryLocation().getStreet());
         domain.setFromZip(inquiry.getFromInquiryLocation().getZip());
         domain.setCity(inquiry.getFromInquiryLocation().getCity());
+        domain.setReferenceNumber(createReferenceNumber(inquiry));
         return domain;
     }
 }

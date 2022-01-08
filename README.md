@@ -21,8 +21,8 @@ To start the application for development go to the Class `fh.burgenland.moveme.M
 * insert_final_newLine
 * indent_style
 
-# Spotless
+## Spotless
 * Windows: `gradlew spotlessApply` // and spotlessCheck
-## sources
+### sources
 https://github.com/diffplug/spotless
 https://github.com/diffplug/spotless/tree/main/plugin-gradle
