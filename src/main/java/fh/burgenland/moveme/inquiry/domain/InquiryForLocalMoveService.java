@@ -30,8 +30,7 @@ public class InquiryForLocalMoveService {
     }
 
     private String createReferenceNumber(InquiryForLocalMove inquiry) {
-        var reference = ReferenceNumber.localReferenceNumberOf(inquiry.getInquiryContact().getName(), inquiry.getFromInquiryLocation().getCity()).getValue();
-        return reference;
+        return ReferenceNumber.localReferenceNumberOf(inquiry.getInquiryContact().getName(), inquiry.getFromInquiryLocation().getCity()).getValue();
     }
 
     private InquiryForLocalMoveDomain toDomain(InquiryForLocalMove inquiry) {

@@ -13,6 +13,7 @@ public class InquiryForLocalMoveDomainTestData {
         inquiryDomain.setToStreet("Innstraße 7/1");
         inquiryDomain.setToZip("1201");
         inquiryDomain.setCity("Wien");
+        inquiryDomain.setReferenceNumber("IFLM_ALEXI_PAOLI_WIEN");
 
         return inquiryDomain;
     }
